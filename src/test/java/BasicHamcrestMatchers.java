@@ -18,4 +18,15 @@ public class BasicHamcrestMatchers {
     public void testSubstringMatches() {
        assertThat("This is a long string", containsString("long"));
     }
+
+    @Test
+    public void testTwoObjectsAreNotEqual() {
+       assertThat(new Foo("Hello"), not(equalTo(new Foo("Hello"))));
+    }
+
+    @Test
+    public void testMultipleAssertionsForAnObject() {
+        Foo foo = new Foo("hello");
+        assertThat("hello", foo.getName(), equalTo("hello"));
+    }
 }
